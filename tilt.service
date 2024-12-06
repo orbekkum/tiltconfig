@@ -1,0 +1,16 @@
+[Unit]
+Description=Start the tilt monitoring to control heating.
+After=multi-user.target
+
+[Service]
+Type=idle
+
+User=pi
+WorkingDirectory=/home/pi/OLED_Stats
+ExecStart=/usr/bin/python3 /home/pi/OLED_Stats/tiltV3.py
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
